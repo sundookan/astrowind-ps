@@ -1,0 +1,81 @@
+---
+// Frontmatter section (JavaScript/TypeScript logic)
+const discountCode = "7CCTJYGEP6R9AEK";
+const planName = "Google Workspace Business Standard";
+const region = "EMEA";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upgrade to Google Workspace Business Standard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #202124;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+    }
+    h1 {
+      color: #1a73e8;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+    .discount-code {
+      background: #e8f0fe;
+      padding: 1rem;
+      border-radius: 4px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #1a73e8;
+      margin: 1.5rem 0;
+    }
+    .cta-button {
+      background: #1a73e8;
+      color: white;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .cta-button:hover {
+      background: #1557b0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Upgrade to {planName}</h1>
+    <p>Boost your productivity with Google Workspace. Collaborate seamlessly with Gmail, Drive, Meet, and more.</p>
+    <p>Use the discount code below to get started:</p>
+    <div class="discount-code">
+      {discountCode}
+    </div>
+    <p>Valid for the {region} region. Don't miss out on this exclusive offer!</p>
+    <button class="cta-button" onclick="window.location.href='https://workspace.google.com'">
+      Get Started Now
+    </button>
+  </div>
+</body>
+</html>
