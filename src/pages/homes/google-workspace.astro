@@ -1,81 +1,244 @@
----
-// Frontmatter section (JavaScript/TypeScript logic)
-const discountCode = "7CCTJYGEP6R9AEK";
-const planName = "Google Workspace Business Standard";
-const region = "EMEA";
+import Layout from '~/layouts/PageLayout.astro';
+import Header from '~/components/widgets/Header.astro';
+import Hero2 from '~/components/widgets/Hero2.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import Content from '~/components/widgets/Content.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
+import FAQs from '~/components/widgets/FAQs.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Button from '~/components/ui/Button.astro';
+import Image from '~/components/common/Image.astro';
+
+const googleWorkspaceImg = '~/assets/images/google-workspace.png';
+const googleWorkspaceLink = 'https://workspace.google.com';
+
+const metadata = {
+  title: 'Transition to Google Workspace',
+};
+
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Upgrade to Google Workspace Business Standard</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f9;
-      color: #202124;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-    }
-    .container {
-      background: white;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      max-width: 600px;
-    }
-    h1 {
-      color: #1a73e8;
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-    p {
-      font-size: 1.2rem;
-      line-height: 1.6;
-    }
-    .discount-code {
-      background: #e8f0fe;
-      padding: 1rem;
-      border-radius: 4px;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #1a73e8;
-      margin: 1.5rem 0;
-    }
-    .cta-button {
-      background: #1a73e8;
-      color: white;
-      padding: 1rem 2rem;
-      border: none;
-      border-radius: 4px;
-      font-size: 1.2rem;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    .cta-button:hover {
-      background: #1557b0;
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <h1>Upgrade to {planName}</h1>
-    <p>Boost your productivity with Google Workspace. Collaborate seamlessly with Gmail, Drive, Meet, and more.</p>
-    <p>Use the discount code below to get started:</p>
-    <div class="discount-code">
-      {discountCode}
+<Layout metadata={metadata}>
+  <Fragment slot="announcement"></Fragment>
+  <Fragment slot="header">
+    <Header
+      position="left"
+      links={[
+        { text: 'Benefits', href: '#benefits' },
+        { text: 'Features', href: '#features' },
+        { text: 'Testimonials', href: '#testimonials' },
+      ]}
+      actions={[
+        {
+          text: 'Get Started',
+          href: googleWorkspaceLink,
+        },
+      ]}
+      isSticky
+      showToggleTheme
+    />
+  </Fragment>
+
+  <!-- Hero2 Widget ******************* -->
+
+  <Hero2
+    tagline="Unlock the Power of Collaboration"
+    image={{
+      src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Google Workspace Hero Image',
+    }}
+  >
+    <Fragment slot="title">
+      <span class="text-accent dark:text-white highlight">Google Workspace</span>: <br /> Streamline Your Workflow <span
+        class="hidden xl:inline">with Seamless Collaboration</span>
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      <span class="hidden sm:inline">
+        Transition from individual solutions to a unified platform designed for productivity, collaboration, and growth.
+      </span>
+      Discover how Google Workspace can transform the way your team works.
+    </Fragment>
+
+    <div slot="actions" class="flex max-w-sm gap-4">
+      <Button variant="primary" href={googleWorkspaceLink}>
+        Explore Google Workspace
+      </Button>
     </div>
-    <p>Valid for the {region} region. Don't miss out on this exclusive offer!</p>
-    <button class="cta-button" onclick="window.location.href='https://workspace.google.com'">
-      Get Started Now
-    </button>
-  </div>
-</body>
-</html>
+  </Hero2>
+
+  <!-- Features3 Widget ************** -->
+
+  <Features3
+    id="benefits"
+    title="Why Transition to Google Workspace?"
+    subtitle="Say goodbye to fragmented tools and hello to a unified platform that enhances productivity, collaboration, and efficiency."
+    tagline="Key Benefits"
+    columns={2}
+    items={[
+      {
+        title: 'Centralized Collaboration',
+        description: `Bring your team together with tools like Gmail, Google Drive, Docs, Sheets, and Meet—all in one place.`,
+        icon: 'tabler:users',
+      },
+      {
+        title: 'Real-Time Editing',
+        description: 'Work simultaneously on documents, spreadsheets, and presentations with real-time updates and feedback.',
+        icon: 'tabler:edit',
+      },
+      {
+        title: 'Secure Cloud Storage',
+        description: 'Store and access files securely from anywhere with Google Drive’s robust cloud infrastructure.',
+        icon: 'tabler:cloud-lock',
+      },
+      {
+        title: 'Seamless Integration',
+        description: 'Integrate with your favorite apps and tools to create a customized workflow tailored to your needs.',
+        icon: 'tabler:plug',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Collaboration Image',
+    }}
+  />
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    items={[
+      {
+        title: 'Enhanced Productivity',
+        description:
+          'Reduce time spent switching between tools and focus on what matters most with Google Workspace’s streamlined interface.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Scalable Solutions',
+        description:
+          'Whether you’re a small business or a large enterprise, Google Workspace grows with you, offering flexible plans and features.',
+        icon: 'tabler:growth',
+      },
+      {
+        title: '24/7 Support',
+        description:
+          'Get access to expert support and resources to ensure your team is always up and running.',
+        icon: 'tabler:headset',
+      },
+      {
+        title: 'Cost-Effective',
+        description: 'Save on IT costs by consolidating tools and reducing the need for multiple subscriptions.',
+        icon: 'tabler:coin',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Productivity Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Why Choose Google Workspace?</h3>
+    </Fragment>
+  </Content>
+
+  <!-- Stats Widget ****************** -->
+
+  <Stats
+    title="Google Workspace by the Numbers"
+    stats={[
+      { amount: '3B+', description: 'Users worldwide', icon: 'tabler:world' },
+      { amount: '99.9%', description: 'Uptime reliability', icon: 'tabler:shield-check' },
+      { amount: '50%', description: 'Increase in team productivity', icon: 'tabler:chart-line' },
+    ]}
+  />
+
+  <!-- Testimonials Widget *********** -->
+
+  <Testimonials
+    id="testimonials"
+    title="What Our Customers Say"
+    testimonials={[
+      {
+        testimonial: `Switching to Google Workspace has been a game-changer for our team. The collaboration tools are unmatched, and our productivity has skyrocketed.`,
+        name: 'Sarah Johnson',
+        job: 'CEO, Tech Innovators',
+        image: {
+          src: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+          alt: 'Sarah Johnson Image',
+        },
+      },
+      {
+        testimonial: `The transition was seamless, and the support we received was exceptional. Google Workspace has transformed how we work together.`,
+        name: 'Michael Lee',
+        job: 'CTO, Creative Solutions',
+        image: {
+          src: 'https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+          alt: 'Michael Lee Image',
+        },
+      },
+      {
+        testimonial: `We’ve saved so much time and money by consolidating our tools into Google Workspace. It’s the best decision we’ve made for our business.`,
+        name: 'Emily Carter',
+        job: 'Marketing Director, Bright Ideas',
+        image: {
+          src: 'https://images.unsplash.com/photo-1512361436605-a484bdb34b5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+          alt: 'Emily Carter Image',
+        },
+      },
+    ]}
+    callToAction={{
+      target: '_blank',
+      text: 'Read more testimonials',
+      href: googleWorkspaceLink,
+      icon: 'tabler:chevron-right',
+    }}
+  />
+
+  <!-- FAQs Widget ******************* -->
+
+  <FAQs
+    title="Frequently Asked Questions"
+    items={[
+      {
+        title: 'What is Google Workspace?',
+        description:
+          'Google Workspace is a suite of cloud-based productivity and collaboration tools, including Gmail, Drive, Docs, Sheets, and more.',
+      },
+      {
+        title: 'How does it improve collaboration?',
+        description:
+          'With real-time editing, shared drives, and integrated communication tools, teams can work together more efficiently.',
+      },
+      {
+        title: 'Is it secure?',
+        description: `Yes, Google Workspace offers enterprise-grade security, including data encryption, two-factor authentication, and advanced admin controls.`,
+      },
+      {
+        title: 'Can I migrate my existing data?',
+        description:
+          'Absolutely! Google Workspace provides tools and support to help you seamlessly migrate your data from other platforms.',
+      },
+      {
+        title: 'What plans are available?',
+        description:
+          'Google Workspace offers flexible plans tailored to businesses of all sizes, from small teams to large enterprises.',
+      },
+    ]}
+  />
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    id="get-started"
+    title="Ready to Transform Your Workflow?"
+    subtitle="Join millions of businesses worldwide and experience the power of Google Workspace today."
+  >
+    <div slot="actions" class="flex max-w-sm gap-4">
+      <Button variant="primary" href={googleWorkspaceLink}>
+        Get Started
+      </Button>
+    </div>
+  </CallToAction>
+</Layout>
